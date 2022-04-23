@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Test</title>
+		<style>
+			.card {
+				box-sizing: border-box;
+				float: left;
+				padding: 0;
+				margin: 2px;
+				width: 125px;
+			}
+			.card img {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/cards.js"></script>
+	<script>
+		const deck = new Deck();
+		const cards = deck.cards;
+		for (i = 0; i < cards.length; i++) {
+			const card = cards[i];
+			const html = `<div class="card"><img src="${card.image}"></div>`;
+			$('body').append(html);
+		}
+	</script>
+</html>
