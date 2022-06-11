@@ -7,14 +7,16 @@
 		<title>Test</title>
 		<style>
 			.card {
+				border-radius: 5px;
 				box-sizing: border-box;
 				float: left;
+				height: 182px;
 				padding: 0;
-				margin: 2px;
+				margin: 5px;
 				width: 125px;
 			}
 			.card img {
-				width: 100%;
+				width: 125px;
 			}
 		</style>
 	</head>
@@ -23,12 +25,26 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="js/cards.js"></script>
 	<script>
-		const deck = new Deck();
+		const deck = new Deck('images/backs/card-back-red.png');
 		const cards = deck.cards;
 		for (i = 0; i < cards.length; i++) {
 			const card = cards[i];
-			const html = `<div class="card"><img src="${card.image}"></div>`;
+			const html = `
+				<div class="card">
+					<img src="${deck.image}" data-back="${deck.image}" data-front="${card.image}">
+				</div>
+			`;
 			$('body').append(html);
 		}
+		$('.card img').on('click', function() {
+			const backImage = $(this).data('back');
+			const frontImage = $(this).data('front');
+			const src = $(this).attr('src');
+			if (src === backImage) {
+				$(this).attr('src', frontImage);
+			} else {
+				$(this).attr('src', backImage);
+			}
+		});
 	</script>
 </html>
