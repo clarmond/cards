@@ -33,7 +33,8 @@ class Deck {
 
 	cardValues = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
-	constructor() {
+	constructor(image) {
+		this.image = image;
 		this.cards = [];
 		for (let val = 0; val < this.cardValues.length; val++) {
 			for (const [suitKey, suitValue] of Object.entries(this.SUITS)) {
@@ -42,9 +43,8 @@ class Deck {
 				if (val > 8) {
 					rankText = this.RANKS[cardValue].toLowerCase();
 				}
-				const image = `images/${rankText.toLowerCase()}_of_${suitValue.toLowerCase()}.svg`;
+				const image = `images/fronts/${rankText.toLowerCase()}_of_${suitValue.toLowerCase()}.svg`;
 				const card = new Card(val, cardValue, suitKey, this.COLORS[suitKey], image);
-				console.log(card)
 				this.cards.push(card);
 			}
 		}
