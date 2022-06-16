@@ -9,13 +9,17 @@
 			.card {
 				border-radius: 5px;
 				box-sizing: border-box;
+				filter: drop-shadow(4px 4px 4px #888);
 				float: left;
 				height: 182px;
+				overflow: hidden;
 				padding: 0;
 				margin: 5px;
 				width: 125px;
 			}
 			.card img {
+				border-radius: 5px;
+				margin: 0;
 				width: 125px;
 			}
 		</style>
@@ -26,6 +30,7 @@
 	<script src="js/cards.js"></script>
 	<script>
 		const deck = new Deck('images/backs/card-back-red.png');
+		// const deck = new Deck('images/backs/hoyle-blue.jpg');
 		const cards = deck.cards;
 		for (i = 0; i < cards.length; i++) {
 			const card = cards[i];
