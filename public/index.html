@@ -28,28 +28,4 @@
 	</body>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="js/cards.js"></script>
-	<script>
-		const deck = new Deck('images/backs/card-back-red.png');
-		// const deck = new Deck('images/backs/hoyle-blue.jpg');
-		const cards = deck.cards;
-		for (i = 0; i < cards.length; i++) {
-			const card = cards[i];
-			const html = `
-				<div class="card">
-					<img src="${deck.image}" data-back="${deck.image}" data-front="${card.image}">
-				</div>
-			`;
-			$('body').append(html);
-		}
-		$('.card img').on('click', function() {
-			const backImage = $(this).data('back');
-			const frontImage = $(this).data('front');
-			const src = $(this).attr('src');
-			if (src === backImage) {
-				$(this).attr('src', frontImage);
-			} else {
-				$(this).attr('src', backImage);
-			}
-		});
-	</script>
 </html>
