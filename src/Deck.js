@@ -28,7 +28,7 @@ function Deck() {
 	for (let val = 0; val < this.CARD_VALUES.length; val++) {
 		for (const [suitKey, suitValue] of Object.entries(this.SUITS)) {
 			const cardValue = this.CARD_VALUES[val];
-			const card = new Card(val, cardValue, suitValue, this.COLORS[suitKey]);
+			const card = new Card(val, cardValue, suitKey, this.COLORS[suitKey]);
 			this.cards.push(card);
 		}
 	}
@@ -38,6 +38,10 @@ Deck.prototype.getCardAtPosition = function(postion) {
 	const card = this.cards[postion];
 	this.cards.splice(postion, 1);
 	return card;
+}
+
+Deck.prototype.getNextCard = function() {
+	return this.getCardAtPosition(0);
 }
 
 Deck.prototype.shuffle = function() {
